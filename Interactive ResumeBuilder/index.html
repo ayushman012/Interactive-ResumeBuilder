@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Resume Builder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">Resume Builder</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#form">Build Resume</a></li>
+            <li><a href="#preview">Preview</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="burger" onclick="toggleMenu()">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <div class="container" id="home">
+        <h1>Interactive Resume Builder</h1>
+        <div class="form-container" id="form">
+            <form id="resume-form">
+                <div class="input-field">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Your Name" oninput="updateResume()" required>
+                </div>
+                <div class="input-field">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Your Email" oninput="updateResume()" required>
+                </div>
+                <div class="input-field">
+                    <label for="phone">Phone Number</label>
+                    <input type="text" id="phone" placeholder="Your Phone Number" oninput="updateResume()" required>
+                </div>
+                <div class="input-field">
+                    <label for="summary">Profile Summary</label>
+                    <textarea id="summary" placeholder="Write a short profile summary" oninput="updateResume()"></textarea>
+                </div>
+                <div class="input-field">
+                    <label for="education">Education</label>
+                    <div id="education-fields"></div>
+                    <button type="button" onclick="addEducation()">Add Education</button>
+                </div>
+                <div class="input-field">
+                    <label for="skills">Skills</label>
+                    <input type="text" id="skills" placeholder="e.g., JavaScript, CSS" oninput="updateResume()" required>
+                </div>
+                <div class="input-field">
+                    <label for="experience">Experience</label>
+                    <div id="experience-fields"></div>
+                    <button type="button" onclick="addExperience()">Add Experience</button>
+                </div>
+                <button type="button" onclick="clearForm()">Clear Form</button>
+            </form>
+        </div>
+
+        <div class="resume-preview" id="preview">
+            <h2>Resume Preview</h2>
+            <div id="resume-output">
+                <h3 id="preview-name"></h3>
+                <p id="preview-email"></p>
+                <p id="preview-phone"></p>
+                <p id="preview-summary"></p>
+                <div id="preview-education"></div>
+                <div id="preview-skills"></div>
+                <div id="preview-experience"></div>
+                <button id="download-btn" onclick="downloadPDF()">Download Resume</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <p>Contact us at: info@resumebuilder.com</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
